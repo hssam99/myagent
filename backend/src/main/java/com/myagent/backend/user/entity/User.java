@@ -33,6 +33,7 @@ public class User {
     @Column(name = "provider_id", nullable = false)
     private String providerId;
 
+    // TODO: 엔티티 추가 시 BaseTimeEntity로 시간 필드 공통화
     @Column(name = "created_at", nullable = false, updatable = false)
     private LocalDateTime createdAt;
 
