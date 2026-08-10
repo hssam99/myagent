@@ -1,18 +1,18 @@
 package com.myagent.backend.user.entity;
 
+import com.myagent.backend.common.entity.BaseTimeEntity;
 import jakarta.persistence.*;
 import lombok.AccessLevel;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
-import java.time.LocalDateTime;
 
 @Entity
 @Table(name="users")
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-public class User {
+public class User extends BaseTimeEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -33,33 +33,11 @@ public class User {
     @Column(name = "provider_id", nullable = false)
     private String providerId;
 
-    // TODO: 엔티티 추가 시 BaseTimeEntity로 시간 필드 공통화
-    @Column(name = "created_at", nullable = false, updatable = false)
-    private LocalDateTime createdAt;
-
-    @Column(name = "updated_at", nullable = false)
-    private LocalDateTime updatedAt;
-
-    @PrePersist
-    protected void onCreate() {
-        LocalDateTime now = LocalDateTime.now();
-        this.createdAt = now;
-        this.updatedAt = now;
-        if (this.timezone == null) {
-            this.timezone = "Asia/Seoul";
-        }
-    }
-
-    @PreUpdate
-    protected void onUpdate() {
-        this.updatedAt = LocalDateTime.now();
-    }
-
     @Builder
     public User(String email, String nickname, String timezone, OAuthProvider provider, String providerId) {
         this.email = email;
         this.nickname = nickname;
-        this.timezone = timezone;
+        this.timezone = (timezone != null) ? timezone : "Asia/Seoul";
         this.provider = provider;
         this.providerId = providerId;
     }

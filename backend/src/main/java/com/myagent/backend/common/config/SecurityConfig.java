@@ -13,9 +13,11 @@ public class SecurityConfig {
 
     private final CustomOAuth2UserService customOAuth2UserService;
 
+    // TODO: 프론트 연동 시 JWT(헤더 인증) 전환 + CORS 설정(localhost:5173 허용) 추가
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http
+                .csrf(csrf -> csrf.disable())
                 .authorizeHttpRequests(auth -> auth
                         .anyRequest().authenticated()
                 )
