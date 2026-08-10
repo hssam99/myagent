@@ -21,6 +21,7 @@ public class SecurityConfig {
     private final CustomOAuth2UserService customOAuth2UserService;
     private final AppProperties appProperties;
 
+    // TODO (배포 전 보안): HTTPS 적용, 쿠키 Secure+SameSite, CORS를 실도메인으로, CSRF 재검토
     // TODO: 추후 세션 인증을 JWT(헤더 인증) 방식으로 전환
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {

@@ -12,6 +12,7 @@ import org.springframework.security.oauth2.client.authentication.OAuth2Authentic
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/calendars")
@@ -37,5 +38,12 @@ public class CalendarController {
         return calendarService.getMyCalendars(me).stream()
                 .map(CalendarResponse::from)
                 .toList();
+    }
+
+    @GetMapping("/{id}")
+    public CalendarResponse getCalendar(@PathVariable Long id, OAuth2AuthenticationToken authentication) {
+        User me = userService.getCurrentUser(authentication);
+        Calendar calendar = calendarService.getCalendarById(id, me);
+        return CalendarResponse.from(calendar);
     }
 }
