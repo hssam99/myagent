@@ -13,7 +13,6 @@ import org.springframework.security.oauth2.client.authentication.OAuth2Authentic
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/calendars")
@@ -23,7 +22,6 @@ public class CalendarController {
     private final CalendarService calendarService;
     private final UserService userService;
 
-    // TODO: 없는 캘린더 조회 구현 시 전역 예외 처리(@RestControllerAdvice + ErrorCode) + @Valid 입구 검증 도입
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED) // 이 메서드 성공 시엔 200 대신 201을 보내라"는 선언
     public CalendarResponse create(@Valid @RequestBody CalendarCreateRequest request,

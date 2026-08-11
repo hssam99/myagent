@@ -16,6 +16,7 @@ HttpStatus.UNAUTHORIZED = 401  (로그인 안 됨)
 @Getter
 @RequiredArgsConstructor
 public enum ErrorCode {
+    USER_NOT_FOUND(HttpStatus.NOT_FOUND, "사용자를 찾을 수 없습니다."),
     CALENDAR_NOT_FOUND(HttpStatus.NOT_FOUND, "캘린더를 찾을 수 없습니다."),
     ACCESS_DENIED(HttpStatus.FORBIDDEN, "권한이 없습니다.");
 

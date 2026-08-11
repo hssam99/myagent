@@ -1,5 +1,7 @@
 package com.myagent.backend.user.service;
 
+import com.myagent.backend.common.exception.BusinessException;
+import com.myagent.backend.common.exception.ErrorCode;
 import com.myagent.backend.user.entity.OAuthProvider;
 import com.myagent.backend.user.entity.User;
 import com.myagent.backend.user.repository.UserRepository;
@@ -19,6 +21,6 @@ public class UserService {
         OAuthProvider provider = OAuthProvider.valueOf(
                 authentication.getAuthorizedClientRegistrationId().toUpperCase());
         return userRepository.findByProviderAndProviderId(provider, authentication.getName())
-                .orElseThrow();
+                .orElseThrow(() -> new BusinessException(ErrorCode.USER_NOT_FOUND));
     }
 }
