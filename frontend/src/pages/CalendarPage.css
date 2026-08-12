@@ -1,0 +1,73 @@
+/* CalendarPage 전용 스타일 */
+
+.calendar-page {
+  max-width: 480px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+/* 상단 바 */
+.calendar-topbar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 0;
+}
+
+.calendar-select {
+  padding: 8px 12px;
+  border-radius: 20px;
+  border: 1px solid #ddd;
+}
+
+.chip-btn {
+  padding: 8px 12px;
+  border-radius: 20px;
+  border: 1px solid #ddd;
+  background: #fff;
+  cursor: pointer;
+}
+
+.topbar-right {
+  margin-left: auto;
+  display: flex;
+  gap: 6px;
+}
+
+.icon-btn {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1px solid #ddd;
+  background: #fff;
+  cursor: pointer;
+}
+
+/* 캘린더 만들기 간이 폼 */
+.calendar-create-form {
+  display: flex;
+  gap: 6px;
+  padding: 8px 0;
+}
+
+.calendar-create-form input {
+  flex: 1;
+  padding: 8px;
+}
+
+/* 하단 바 */
+.calendar-bottombar {
+  display: flex;
+  justify-content: space-between;
+  padding: 16px 8px;
+}
+
+.round-btn {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 1px solid #ddd;
+  background: #fff;
+  font-size: 20px;
+  cursor: pointer;
+}
