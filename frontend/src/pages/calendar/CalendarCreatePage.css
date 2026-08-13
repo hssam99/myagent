@@ -1,0 +1,42 @@
+.create-step {
+  margin-left: auto;
+  font-size: 13px;
+  color: #888;
+}
+
+.create-hint {
+  font-size: 13px;
+  color: #888;
+  margin: 16px 0 8px;
+}
+
+.create-actions {
+  display: flex;
+  gap: 8px;
+  margin-top: 24px;
+}
+
+.create-skip {
+  flex: 1;
+  padding: 14px;
+  border: 1px solid #ddd;
+  border-radius: 24px;
+  background: #fff;
+  cursor: pointer;
+}
+
+.create-actions .create-submit {
+  flex: 1;
+  margin-top: 0;
+}
+
+.create-done {
+  margin-top: 24px;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.create-submit:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+}
