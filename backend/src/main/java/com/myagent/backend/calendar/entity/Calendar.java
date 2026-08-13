@@ -34,4 +34,8 @@ public class Calendar extends BaseTimeEntity {
         this.name = name;
         this.inviteCode = inviteCode;
     }
+
+    public void updateName(String name) {
+        this.name = name;
+    }
 }

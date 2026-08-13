@@ -71,3 +71,47 @@
   font-size: 20px;
   cursor: pointer;
 }
+
+.cal-chip {
+  display: flex;
+  align-items: center;
+  border-radius: 20px;
+  border: 1px solid #ddd;
+  background: #fff;
+  overflow: hidden;
+}
+
+.cal-chip--on {
+  border-color: #111;
+}
+
+.cal-chip-main {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 8px 6px 12px;
+  border: none;
+  background: none;
+  color: #999;
+  cursor: pointer;
+}
+
+.cal-chip--on .cal-chip-main {
+  color: #111;
+  font-weight: 600;
+}
+
+.cal-chip-gear {
+  padding: 6px 10px 6px 4px;
+  border: none;
+  background: none;
+  color: #aaa;
+  cursor: pointer;
+}
+
+.cal-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  display: inline-block;
+}

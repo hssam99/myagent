@@ -16,7 +16,9 @@ function LoginPage({ onLogin }) {
         >
           Apple로 가입하기
         </button>
-        <button className="login-btn login-btn--google" onClick={onLogin}>
+        <button
+          className="login-btn login-btn--google"
+          onClick={() => onLogin("google")}>
           Google로 시작하기
         </button>
       </div>
