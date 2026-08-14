@@ -29,6 +29,7 @@ public class SecurityConfig {
                 .csrf(csrf -> csrf.disable())
                 .cors(cors -> cors.configurationSource(corsConfigurationSource()))
                 .authorizeHttpRequests(auth -> auth
+                        .requestMatchers("/api/sources/**").permitAll()   // TODO: 수집기 테스트용, 스케줄러 붙이면 제거
                         .requestMatchers("/api/**").authenticated()       // /api/**는 인증 필요
                         .anyRequest().permitAll()                           // 나머지는 다 허용
                 )
