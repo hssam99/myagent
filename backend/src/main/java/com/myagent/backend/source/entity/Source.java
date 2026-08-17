@@ -24,14 +24,17 @@ public class Source extends BaseTimeEntity {
     @Column(length = 50, nullable = false)
     private String name;
 
+    // -- 어떻게 수집할 것인가
     @Enumerated(EnumType.STRING)
     @Column(length = 20, nullable = false)
     private SourceType type;
 
+    //-- 어떤 Topic에 연결되는가
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name="topic_id")
     private Topic topic;
 
+//    -- 어떤 Category에 연결되는가
     @Enumerated(EnumType.STRING)
     @Column(length = 20)
     private TopicCategory category;

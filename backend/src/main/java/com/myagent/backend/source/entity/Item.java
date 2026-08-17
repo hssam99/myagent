@@ -10,14 +10,14 @@ import lombok.NoArgsConstructor;
 import java.time.Instant;
 
 @Entity
-@Table(name = "entries",
+@Table(name = "items",
 uniqueConstraints = @UniqueConstraint(
-        name = "uk_entries_source_guid",
+        name = "uk_items_source_guid",
         columnNames = {"source_id", "guid"}
 ))
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-public class Entry extends BaseTimeEntity {
+public class Item extends BaseTimeEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -42,12 +42,12 @@ public class Entry extends BaseTimeEntity {
     private Instant publishedAt;
 
     @Builder
-    public Entry(Source source,
-                 String guid,
-                 String url,
-                 String title,
-                 String body,
-                 Instant publishedAt) {
+    public Item(Source source,
+                String guid,
+                String url,
+                String title,
+                String body,
+                Instant publishedAt) {
         this.source = source;
         this.guid = guid;
         this.url = url;

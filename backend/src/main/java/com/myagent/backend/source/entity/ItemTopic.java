@@ -9,32 +9,30 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 @Entity
-@Table(name="entry_topics",
+@Table(name="item_topics",
 uniqueConstraints = {@UniqueConstraint(
-        name="uk_entry_topics_entry_topic",
-        columnNames = {"entry_id", "topic_id"}
+        name="uk_item_topics_item_topic",
+        columnNames = {"item_id", "topic_id"}
         )})
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-public class EntryTopic extends BaseTimeEntity {
-
+public class ItemTopic extends BaseTimeEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name="entry_id", nullable = false)
-    private Entry entry;
+    @JoinColumn(name="item_id", nullable = false)
+    private Item item;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "topic_id", nullable = false)
     private Topic topic;
 
     @Builder
-    public EntryTopic(Entry entry, Topic topic) {
-        this.entry = entry;
+    public ItemTopic(Item item, Topic topic) {
+        this.item = item;
         this.topic = topic;
     }
-
 }
