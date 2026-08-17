@@ -5,5 +5,5 @@ import com.myagent.backend.source.entity.Source;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface ItemRepository extends JpaRepository<Item,Long> {
-    boolean existsBySourceAndGuid(Source source, String guid);
+    boolean existsBySourceAndExternalId(Source source, String externalId);
 }

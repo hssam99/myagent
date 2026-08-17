@@ -12,8 +12,8 @@ import java.time.Instant;
 @Entity
 @Table(name = "items",
 uniqueConstraints = @UniqueConstraint(
-        name = "uk_items_source_guid",
-        columnNames = {"source_id", "guid"}
+        name = "uk_items_source_external_id",
+        columnNames = {"source_id", "external_id"}
 ))
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
@@ -28,7 +28,7 @@ public class Item extends BaseTimeEntity {
     private Source source;
 
     @Column(length = 500, nullable = false)
-    private String guid;
+    private String externalId;
 
     @Column(length = 500, nullable = false)
     private String url;
@@ -43,13 +43,13 @@ public class Item extends BaseTimeEntity {
 
     @Builder
     public Item(Source source,
-                String guid,
+                String externalId,
                 String url,
                 String title,
                 String body,
                 Instant publishedAt) {
         this.source = source;
-        this.guid = guid;
+        this.externalId = externalId;
         this.url = url;
         this.title = title;
         this.body = body;
