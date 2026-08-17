@@ -24,13 +24,14 @@ public class SourceCollectService {
     private final SourceRepository sourceRepository;
     private final EntryRepository entryRepository;
 
-    // db에 등록된 소스 모두 가져오기
+    // db(source)에 등록된 매체, 소스(ex. 스타뉴스) 모두 가져오기
     public void collectAll() {
         List<Source> sourceList = sourceRepository.findByEnabledTrue();
         for (Source source : sourceList) {collect(source);}
 
     }
 
+    // 내용(entry) 가져오기 (rss, api 등) -> entry db에 저장
     private void collect(Source source) {
         try {
             SyndFeedInput input = new SyndFeedInput(); // ROME

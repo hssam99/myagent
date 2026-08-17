@@ -30,6 +30,10 @@ dependencies {
     // RSS 파싱
     implementation 'com.rometools:rome:2.1.0'
 
+    // HTML 다운로드 + 파싱
+    implementation 'org.jsoup:jsoup:1.23.1'
+    implementation 'net.dankito.readability4j:readability4j:1.0.8'
+
 	compileOnly 'org.projectlombok:lombok'
 	runtimeOnly 'com.mysql:mysql-connector-j'
 	annotationProcessor 'org.projectlombok:lombok'
